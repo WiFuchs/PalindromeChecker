@@ -18,10 +18,8 @@ public void setup()
 {
   String lines[] = loadStrings("palindromes.txt");
   println("there are " + lines.length + " lines");
-  for (int i=0; i < lines.length; i++) 
-  {
-    if(palindrome(lines[i])==true)
-    {
+  for (int i=0; i < lines.length; i++) {
+    if(palindrome(stripNonAlpha(lines[i]))==true){
       println(lines[i] + " IS a palidrome.");
     }
     else
@@ -32,10 +30,28 @@ public void setup()
 }
 public boolean palindrome(String word)
 {
-  //your code here
-  return false;
+  String backwards = "";
+  for(int i=word.length(); i>0; i--){
+    backwards = backwards + word.substring(i-1, i);
+  }
+  if(backwards.equals(word)){
+    return true;
+  } else {
+    System.out.println(backwards);
+    return false;
+  }
 }
 
+public String stripNonAlpha(String word){
+  String result = "";
+  for(int i=0; i<word.length(); i++){
+    if(Character.isLetter(word.charAt(i))==true){
+      result = result + word.substring(i, i+1);
+    }
+  }
+  System.out.println("Stripped: " + result.toLowerCase());
+  return result.toLowerCase();
+}
   static public void main(String[] passedArgs) {
     String[] appletArgs = new String[] { "PalindromeChecker" };
     if (passedArgs != null) {
