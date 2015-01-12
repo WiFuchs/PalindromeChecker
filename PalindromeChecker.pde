@@ -21,7 +21,6 @@ public boolean palindrome(String word)
   if(backwards.equals(word)){
     return true;
   } else {
-    System.out.println(backwards);
     return false;
   }
 }
