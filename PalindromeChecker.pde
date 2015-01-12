@@ -33,6 +33,5 @@ public String stripNonAlpha(String word){
       result = result + word.substring(i, i+1);
     }
   }
-  System.out.println("Stripped: " + result.toLowerCase());
   return result.toLowerCase();
 }
